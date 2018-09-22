@@ -131,6 +131,65 @@ function popNext(popupId){
 
 }
 
+function storagePopup(){
+
+    var date = Date.now() + 24 * 60 * 60 * 60;
+    var nodate = Date.now();
+
+    if ( localStorage.getItem('prolog_hash_timestamp') == '' || localStorage.getItem('prolog_hash_timestamp') == null ){
+
+        localStorage.setItem('prolog_hash_timestamp', nodate );        
+        setTimeout(function(){
+            $.fancybox.open({
+                src  : '#jumped-pop',
+                type : 'inline',
+            });
+        }, 60000);
+
+    } else {
+
+        if (  localStorage.getItem('prolog_hash_timestamp') > date ){
+
+            setTimeout(function(){
+                $.fancybox.open({
+                    src  : '#jumped-pop',
+                    type : 'inline',
+                });
+            }, 60000)
+
+        }
+    }
+}
+
+function setCookie(name, value, options) {
+    options = options || {};
+  
+    var expires = options.expires;
+  
+    if (typeof expires == "number" && expires) {
+      var d = new Date();
+      d.setTime(d.getTime() + expires * 1000);
+      expires = options.expires = d;
+    }
+    if (expires && expires.toUTCString) {
+      options.expires = expires.toUTCString();
+    }
+  
+    value = encodeURIComponent(value);
+  
+    var updatedCookie = name + "=" + value;
+  
+    for (var propName in options) {
+      updatedCookie += "; " + propName;
+      var propValue = options[propName];
+      if (propValue !== true) {
+        updatedCookie += "=" + propValue;
+      }
+    }
+  
+    document.cookie = updatedCookie;
+}
+
 /*маска на инпуте*/
 function Maskedinput(){
     if($('.tel-mask')){
@@ -140,9 +199,22 @@ function Maskedinput(){
 
 $(document).ready(function(){
 
-    
+    storagePopup();
 
-   validate('#call-popup .contact-form', {submitFunction:validationCall});
+    $('.coockies-pop .butt').on('click', function(e){
+        e.preventDefault();
+        $('.coockies-pop').fadeOut(300);
+
+        setCookie('prolog_coockie_sajest', 'true' , { expires: 3600 } );
+
+    });
+
+    $('.article-list-wrap .butt-load').on('click', function(e){
+        e.preventDefault();
+        console.log( 'click' );
+    })
+
+   validate('.contact-form-wrap form', {submitFunction:validationCall});
    Maskedinput();
 
 });
