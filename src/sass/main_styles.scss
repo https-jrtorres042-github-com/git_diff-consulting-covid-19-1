@@ -321,12 +321,12 @@
         .mbox{ padding: 140px 15px 100px; 
             &:after{ content: ''; position: absolute; top: 0; left: -100vw; right: calc( 100% - 455px); bottom: 0; background: linear-gradient(146.83deg, rgba(255, 255, 255, 0.15) 2.46%, rgba(255, 255, 255, 0) 109.99%), #000000; z-index: 1; }
         }
-        .side-slider{ position: relative; z-index: 5; margin: 0; }
+        .side-slider{ position: relative; z-index: 5; margin: 0; max-width: 420px; }
         .item{min-height: calc(100vh - 140px - 100px); display: flex; align-items: center;  }
         .contein-slider{}
         .ctext{ 
-            h1, h2{ line-height: 1.2; font-size: 70px; color: #FFFFFF; font-weight: 700; margin-bottom: 30px;}
-            p{ font-family: 'Lato'; font-weight: 300; line-height: 1.5; font-size: 20px; color: #E8EAEA; }
+            h1, h2{ line-height: 1.2; font-size: 50px; color: #FFFFFF; font-weight: 700; margin-bottom: 30px;}
+            p{ font-family: 'Lato'; font-weight: 300; line-height: 1.5; font-size: 18px; color: #E8EAEA; }
         }
         .after-butt{ padding-top: 50px;
             .butt{ transition: all 0.3s; opacity: 0; transition-delay: 1s; }
@@ -352,7 +352,9 @@
     }
 
     [dir=rtl]{
+        .first-wrap .cfix-b{ display: flex; align-items: flex-start; justify-content: flex-end; }
         .slick-slide { float: left; }
+        .first-wrap .side-slider{ width: 100%; }
         .first-wrap .slick-dots{ direction: rtl; }
         .first-wrap .item{ justify-content: flex-end; }
         .first-wrap > *{ direction: ltr; }
@@ -781,58 +783,60 @@
                 .texter{  width: 100%; padding: 30px 40px 30px 0px; }
             }
             .image-side{ width: 58%; height: auto; position: relative; background-attachment: fixed; background-position: center center; background-size: cover; }
-        }
+        }  
+    }
 
+    .lead-form{ width: 100%; overflow: hidden;
+        .mbox:before{ content: ''; position: absolute; top: 0; right: 0; left: -100vw; bottom: 0; background: linear-gradient(168.81deg, rgba(255, 255, 255, 0.15) 2.46%, rgba(255, 255, 255, 0) 109.99%), #000000; }
+        .siders{ position: relative; z-index: 2; padding: 80px 0; display: flex; align-items: flex-start; justify-content: space-between; }
+        .text-part{ width: 50%; padding: 0 0 0 80px; position: relative;
+            .texter{ max-width: 300px;
+                h2{ font-size: 36px; line-height: 1.2; color: #FFFFFF; font-weight: 700; letter-spacing: 0.02em; }
+                p{ line-height: 1.5; font-size: 16px; color: rgba(#F4F4F4 , 0.6) ; letter-spacing: 0.02em; font-weight: 300; } 
+            } 
+            .contact-to-massenger{ padding-top: 50px;
+                p{ line-height: 1.5; font-size: 16px; color: rgba(#F4F4F4 , 0.6) ; letter-spacing: 0.02em; font-weight: 300; }
+                ul{ list-style: none; padding: 20px 0; margin: 0;
+                    li{ display: inline-block; margin-right: 15px; vertical-align: middle; }
+                    a{ display: block; text-decoration: none; }
+                }
+            }        
+        }
+        .form-part{ width: 50%; padding: 0 50px;
+            form{ max-width: 435px; width: 100%; }
+            .inputer{ width: 100%; padding-bottom: 15px; 
+                input{ width: 100%; border: none; border-bottom: 2px solid #3A3A3A; background-color: transparent; transition: all 0.3s; padding: 10px 0; line-height: 1.4; font-size: 16px; color: #fff;
+                    &:focus{ border-bottom: 2px solid #fff; }
+                    &.error{ border-color: #DC2A27; }
+                    &::-webkit-input-placeholder {color: #637074;}
+                    &:-moz-placeholder {color: #637074;opacity:1;}
+                    &::-moz-placeholder {color: #637074;opacity:1;}
+                    &:-ms-input-placeholder {color: #637074;}
+                }
+                textarea{width: 100%; border: none; border-bottom: 2px solid #3A3A3A; background-color: transparent; transition: all 0.3s; resize: none; height: 110px; padding: 10px 0; line-height: 1.4; font-size: 16px; color: #fff;
+                    &:focus{ border-bottom: 2px solid #fff; }
+                    &.error{ border-color: #DC2A27; }
+                    &::-webkit-input-placeholder {color: #637074;}
+                    &:-moz-placeholder {color: #637074;opacity:1;}
+                    &::-moz-placeholder {color: #637074;opacity:1;}
+                    &:-ms-input-placeholder {color: #637074;}
+                }
+            }
+            .submiter{ padding-top: 10px; }
+        }
         .translate-title{ position: absolute; top: 0px; left: 0px; width: 1px;  height: 1px; transform: rotate(-90deg); 
             h2, h3{line-height: 1.5; font-weight: 300; font-size: 24px; color: #8D9293; height: auto; position: absolute; top: 0; right: 0; transform: translateY(-50%); line-height: 1.4; font-size: 14px; text-align: right; color: #8D9293; white-space: nowrap;}
             &:before{ content: ''; position: absolute; top: 2px; left: 15px; background-color: #fff; opacity: 0.2; width: 80px; height: 1px; }
         }
 
-        .lead-form{ width: 100%; overflow: hidden;
-            .mbox:before{ content: ''; position: absolute; top: 0; right: 0; left: -100vw; bottom: 0; background: linear-gradient(168.81deg, rgba(255, 255, 255, 0.15) 2.46%, rgba(255, 255, 255, 0) 109.99%), #000000; }
-            .siders{ position: relative; z-index: 2; padding: 80px 0; display: flex; align-items: flex-start; justify-content: space-between; }
-            .text-part{ width: 50%; padding: 0 0 0 80px; position: relative;
-                .texter{ max-width: 300px;
-                    h2{ font-size: 36px; line-height: 1.2; color: #FFFFFF; font-weight: 700; letter-spacing: 0.02em; }
-                    p{ line-height: 1.5; font-size: 16px; color: rgba(#F4F4F4 , 0.6) ; letter-spacing: 0.02em; font-weight: 300; } 
-                } 
-                .contact-to-massenger{ padding-top: 50px;
-                    p{ line-height: 1.5; font-size: 16px; color: rgba(#F4F4F4 , 0.6) ; letter-spacing: 0.02em; font-weight: 300; }
-                    ul{ list-style: none; padding: 20px 0; margin: 0;
-                        li{ display: inline-block; margin-right: 15px; vertical-align: middle; }
-                        a{ display: block; text-decoration: none; }
-                    }
-                }        
-            }
-            .form-part{ width: 50%; padding: 0 50px;
-                form{ max-width: 435px; width: 100%; }
-                .inputer{ width: 100%; padding-bottom: 15px; 
-                    input{ width: 100%; border: none; border-bottom: 2px solid #3A3A3A; background-color: transparent; transition: all 0.3s; padding: 10px 0; line-height: 1.4; font-size: 16px; color: #fff;
-                        &:focus{ border-bottom: 2px solid #fff; }
-                        &.error{ border-color: #DC2A27; }
-                        &::-webkit-input-placeholder {color: #637074;}
-                        &:-moz-placeholder {color: #637074;opacity:1;}
-                        &::-moz-placeholder {color: #637074;opacity:1;}
-                        &:-ms-input-placeholder {color: #637074;}
-                    }
-                    textarea{width: 100%; border: none; border-bottom: 2px solid #3A3A3A; background-color: transparent; transition: all 0.3s; resize: none; height: 110px; padding: 10px 0; line-height: 1.4; font-size: 16px; color: #fff;
-                        &:focus{ border-bottom: 2px solid #fff; }
-                        &.error{ border-color: #DC2A27; }
-                        &::-webkit-input-placeholder {color: #637074;}
-                        &:-moz-placeholder {color: #637074;opacity:1;}
-                        &::-moz-placeholder {color: #637074;opacity:1;}
-                        &:-ms-input-placeholder {color: #637074;}
-                    }
-                }
-                .submiter{ padding-top: 10px; }
-            }
-        }
     }
 
+    .lead-form-proj{ margin-bottom: 80px; }
+
     [dir=rtl]{
-        .article-single-wrpa .lead-form .text-part{     padding: 0 80px 0 0; }
-        .article-single-wrpa .translate-title{ left: auto; right: 3px; }
-        .article-single-wrpa .lead-form .mbox:before{ left: 0; right: -100vw; }
+        .lead-form .text-part{     padding: 0 80px 0 0; }
+        .lead-form .translate-title{ left: auto; right: 3px; }
+        .lead-form .mbox:before{ left: 0; right: -100vw; }
 
         .article-single-wrpa .covered-texter .siders{ padding-left: 0; padding-right: 40px; }
 

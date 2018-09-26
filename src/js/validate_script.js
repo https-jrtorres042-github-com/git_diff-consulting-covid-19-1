@@ -214,7 +214,7 @@ $(document).ready(function(){
         console.log( 'click' );
     })
 
-   validate('.contact-form-wrap form', {submitFunction:validationCall});
+   validate('.contact-popup form', {submitFunction:validationCall});
    Maskedinput();
 
 });
