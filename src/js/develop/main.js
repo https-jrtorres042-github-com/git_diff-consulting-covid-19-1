@@ -18,6 +18,9 @@ function initMap() {
 
 $(document).ready(function(){
 
+
+    
+
     $("select").select2({
         minimumResultsForSearch: Infinity
     });
@@ -58,6 +61,7 @@ $(document).ready(function(){
         $('.first-wrap .side-slider').slick({
             infinite: true,
             fade : true,
+            initialSlide: 1,
             //slidesToShow: 1,
             //slidesToScroll: 1,
             //autoplay: true,
@@ -227,6 +231,24 @@ $(document).ready(function(){
         });
 
     }
+
+    setTimeout(function(){
+        $('body').removeClass('lock');
+
+        setTimeout(function(){
+            if ( $('.first-wrap').length ){
+                $('.first-wrap .side-slider').slick('slickGoTo', 0 );
+            }
+
+            if ( $('.ab-first').length ){
+                if ( !$('.ab-first .texter').hasClass('scrolled') ){
+                    $('.ab-first .texter').addClass('scrolled');
+                }
+            }
+
+        }, 1200);
+
+    }, 500);
 
 });
 

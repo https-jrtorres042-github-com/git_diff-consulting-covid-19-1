@@ -1,7 +1,7 @@
 function countUp( curr ){
 
     var num = curr.find('.cou').attr('data-count') * 1;
-    var count = 50;
+    var count = 10;
     var start = 0;
     var current = 0;
 
@@ -11,7 +11,8 @@ function countUp( curr ){
 
         current += increment;        
 
-        if (current >= num ) {            
+        if (current >= num ) {   
+            curr.find('.cou').html( num ) ;         
             clearInterval(timer);
         } else {
 
@@ -30,7 +31,28 @@ function countUp( curr ){
 
 $(document).ready(function(){
 
-    if ( $('.pr-counters-wrap').length ){
+    if ( $('.ab-video-wrap').length ){
+
+        $(window).on('scroll', function(){
+
+            if( $('.ab-video-wrap .bigtext').offset().top - $(window).scrollTop() < 2*$(window).height()/3 ){                        
+                if ( !$('.ab-video-wrap .bigtext').hasClass('scrolled') ){
+                    $('.ab-video-wrap .bigtext').addClass('scrolled');
+                }
+            }
+
+            if( $('.ab-video-wrap .bigtext').offset().top - $(window).scrollTop() < 2*$(window).height()/3 ){                        
+                if ( !$('.ab-video-wrap .smaller').hasClass('scrolled') ){
+                    $('.ab-video-wrap .smaller').addClass('scrolled');
+                }
+            }
+
+        })
+
+    }
+
+
+    if ( $('.gallary-wrap ').length ){
 
         if ( $('html').attr('dir') == 'rtl'  ){
             $('.gallary-wrap .sliding-gal').slick({
@@ -71,6 +93,55 @@ $(document).ready(function(){
 
         })
 
+    }
+
+    if ( $('.solution-wrap').length ){
+
+        if ( $('html').attr('dir') == 'rtl' ){
+            $('.solution-wrap .slider-items').slick({
+                slidesToShow: 2,
+                speed: 500,
+              //  rtl: true,
+                initialSlide : 1,
+                slidesToScroll: 1,
+                prevArrow : $('.list-solutions .navigation .prev'),
+                nextArrow : $('.list-solutions .navigation .next'),
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1,
+                            centerMode: true,
+                            swipe: true,
+                            swipeToSlide: true,
+                            variableWidth: true,
+                            slidesToScroll: 1,
+                            dots: true
+                        }
+                    }
+                ]
+            });
+        } else {
+            $('.solution-wrap .slider-items').slick({
+                slidesToShow: 2,
+                speed: 500,
+                slidesToScroll: 1,
+                prevArrow : $('.list-solutions .navigation .prev'),
+                nextArrow : $('.list-solutions .navigation .next'),
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 1,
+                            centerMode: true,
+                            variableWidth: true,
+                            slidesToScroll: 1,
+                            dots: true
+                        }
+                    }
+                ]
+            });
+        }
     }
 
 
